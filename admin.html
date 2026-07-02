@@ -366,7 +366,9 @@ resultado.numeros;
 
 configuracion =
 resultado.configuracion;
-
+ 
+console.log("CONFIGURACION =", JSON.stringify(configuracion, null, 2));
+ 
 document.getElementById("nombre_rifa")
 .value =
 configuracion.nombre_rifa || "";
