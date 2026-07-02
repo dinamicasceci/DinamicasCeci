@@ -380,45 +380,34 @@ resultado.numeros;
 
 console.log(datos);
 
-config = resultado.configuracion;
-
-console.log(config);
-console.log("Configuración:", config);
-console.log("Fecha:", config.fecha_sorteo);
-console.log("Hora:", config.hora_sorteo);
-
+config =
+resultado.configuracion;
+        console.log("Configuración:", config);
+console.log("Fecha recibida:", config.fecha_sorteo);
 const fechaTexto = config.fecha_sorteo || "";
-const horaTexto = config.hora_sorteo || "";
+const horaTexto = config.hora_sorteo || "00:00";
 
-// Esta fecha se usa SOLO para los cálculos internos
-const fecha = new Date(fechaTexto + "T" + horaTexto);
+const fecha = new Date(
+    fechaTexto + "T" + horaTexto
+);
 
-// Esta parte es SOLO para mostrar la fecha
-const meses = [
-    "Enero","Febrero","Marzo","Abril",
-    "Mayo","Junio","Julio","Agosto",
-    "Septiembre","Octubre","Noviembre","Diciembre"
-];
-
-let fechaMostrar = fechaTexto;
-
-if (fechaTexto.includes("-")) {
-
-    const partes = fechaTexto.split("-");
-
-    fechaMostrar =
-        Number(partes[2]) + " " +
-        meses[Number(partes[1]) - 1] + " " +
-        partes[0];
-}
-
+// Solo la fecha
 document.getElementById("fechaEvento").innerText =
-config.fecha_mostrar || fechaMostrar;
+fecha.toLocaleDateString("es-CO", {
+    weekday:"long",
+    day:"numeric",
+    month:"long",
+    year:"numeric"
+});
 
+// Hora aparte
 document.getElementById("horaSorteo").innerText =
 "🕒 Hora del Sorteo: " +
-(config.hora_mostrar || horaTexto);
-
+fecha.toLocaleTimeString("es-CO", {
+    hour:"2-digit",
+    minute:"2-digit",
+    hour12:true
+});
 if(config.loteria){
 
     document.getElementById(
