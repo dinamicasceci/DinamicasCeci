@@ -406,6 +406,11 @@ if (hora.includes("T")) {
 document.getElementById("fecha_sorteo").value = fecha;
 document.getElementById("hora_sorteo").value = hora;
  
+document.getElementById("fecha_mostrar").value =
+configuracion.fecha_mostrar || "";
+
+document.getElementById("hora_mostrar").value =
+configuracion.hora_mostrar || "";
 console.log("Configuración completa:", configuracion);
 
 console.log("Fecha recibida:", configuracion.fecha_sorteo);
