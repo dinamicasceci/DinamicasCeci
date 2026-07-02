@@ -382,8 +382,11 @@ console.log(datos);
 
 config =
 resultado.configuracion;
-        console.log("Configuración:", config);
-console.log("Fecha recibida:", config.fecha_sorteo);
+
+console.log("Configuración:", config);
+console.log("Fecha:", config.fecha_sorteo);
+console.log("Hora:", config.hora_sorteo);
+
 const fechaTexto = config.fecha_sorteo || "";
 const horaTexto = config.hora_sorteo || "";
 
