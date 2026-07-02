@@ -413,7 +413,7 @@ configuracion.fecha_mostrar || "";
 
 document.getElementById("hora_mostrar").value =
 configuracion.hora_mostrar || "";
-console.log("Configuración completa:", configuracion);
+console.log("Configuración completa:", JSON.stringify(configuracion, null, 2));
 
 console.log("Fecha recibida:", configuracion.fecha_sorteo);
 
