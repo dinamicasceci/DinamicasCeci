@@ -387,21 +387,34 @@ console.log("Fecha recibida:", config.fecha_sorteo);
 const fechaTexto = config.fecha_sorteo || "";
 const horaTexto = config.hora_sorteo || "";
 
+// Esta fecha se usa SOLO para los cálculos internos
+const fecha = new Date(fechaTexto + "T" + horaTexto);
+
+// Esta parte es SOLO para mostrar la fecha
+const meses = [
+    "Enero","Febrero","Marzo","Abril",
+    "Mayo","Junio","Julio","Agosto",
+    "Septiembre","Octubre","Noviembre","Diciembre"
+];
+
+let fechaMostrar = fechaTexto;
+
+if (fechaTexto.includes("-")) {
+
+    const partes = fechaTexto.split("-");
+
+    fechaMostrar =
+        Number(partes[2]) + " " +
+        meses[Number(partes[1]) - 1] + " " +
+        partes[0];
+}
+
 document.getElementById("fechaEvento").innerText =
-fechaTexto;
+fechaMostrar;
 
 document.getElementById("horaSorteo").innerText =
 "🕒 Hora del Sorteo: " + horaTexto;
 
-if(config.loteria){
-
-    document.getElementById(
-        "loteriaSorteo"
-    ).innerText =
-    "🎲 Juega con: " +
-    config.loteria;
-
-}
 if(config.loteria){
 
     document.getElementById(
