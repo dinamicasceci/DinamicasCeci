@@ -386,7 +386,7 @@ resultado.configuracion;
 console.log("Configuración:", config);
 console.log("Fecha:", config.fecha_sorteo);
 console.log("Hora:", config.hora_sorteo);
-
+console.log("HoraTexto:", horaTexto);
 const fechaTexto = config.fecha_sorteo || "";
 const horaTexto = config.hora_sorteo || "";
 
@@ -416,7 +416,7 @@ document.getElementById("fechaEvento").innerText =
 fechaMostrar;
 
 document.getElementById("horaSorteo").innerText =
-"🕒 Hora del Sorteo: " + horaTexto;
+"🕒 Hora del Sorteo: [" + horaTexto + "]";
 
 if(config.loteria){
 
