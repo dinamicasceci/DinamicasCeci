@@ -413,10 +413,11 @@ if (fechaTexto.includes("-")) {
 }
 
 document.getElementById("fechaEvento").innerText =
-fechaMostrar;
+config.fecha_mostrar || fechaMostrar;
 
 document.getElementById("horaSorteo").innerText =
-"🕒 Hora del Sorteo: [" + horaTexto + "]";
+"🕒 Hora del Sorteo: " +
+(config.hora_mostrar || horaTexto);
 
 if(config.loteria){
 
