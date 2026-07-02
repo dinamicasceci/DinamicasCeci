@@ -232,7 +232,18 @@ type="date">
 <input
 id="hora_sorteo"
 type="time">
+     
+<label>📅 Fecha para Mostrar</label>
+<input
+id="fecha_mostrar"
+type="text"
+placeholder="Ej: 26 de Enero">
 
+<label>🕒 Hora para Mostrar</label>
+<input
+id="hora_mostrar"
+type="text"
+placeholder="Ej: 7:30 pm">
         <label>🎰 Lotería del Sorteo</label>
         <select id="loteria">
 
@@ -696,6 +707,16 @@ document.getElementById(
 hora_sorteo:
 document.getElementById(
 "hora_sorteo"
+).value,
+ 
+ fecha_mostrar:
+document.getElementById(
+"fecha_mostrar"
+).value,
+
+hora_mostrar:
+document.getElementById(
+"hora_mostrar"
 ).value,
  
 loteria:
