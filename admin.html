@@ -232,7 +232,18 @@ type="date">
 <input
 id="hora_sorteo"
 type="time">
+     
+<label>📅 Fecha para Mostrar</label>
+<input
+id="fecha_mostrar"
+type="text"
+placeholder="Ej: 26 de Enero">
 
+<label>🕒 Hora para Mostrar</label>
+<input
+id="hora_mostrar"
+type="text"
+placeholder="Ej: 7:30 pm">
         <label>🎰 Lotería del Sorteo</label>
         <select id="loteria">
 
@@ -698,6 +709,16 @@ document.getElementById(
 "hora_sorteo"
 ).value,
  
+ fecha_mostrar:
+document.getElementById(
+"fecha_mostrar"
+).value,
+
+hora_mostrar:
+document.getElementById(
+"hora_mostrar"
+).value,
+ 
 loteria:
 document.getElementById(
 "loteria"
@@ -865,15 +886,25 @@ async function cerrarSorteo(){
         "nombre_rifa"
     ).value;
 
-    const fecha =
-    document.getElementById(
-        "fecha_sorteo"
-    ).value;
+  const fechaReal =
+document.getElementById(
+    "fecha_sorteo"
+).value;
 
-  const hora =
+const horaReal =
 document.getElementById(
     "hora_sorteo"
 ).value;
+
+const fechaMostrar =
+document.getElementById(
+    "fecha_mostrar"
+).value || fechaReal;
+
+const horaMostrar =
+document.getElementById(
+    "hora_mostrar"
+).value || horaReal;
   
     const premio1 =
     document.getElementById(
@@ -940,8 +971,12 @@ if(fondo){
                 🎲 ${loteria}
             </h2>
 
-            <p style="font-size:26px;">
-    📅 ${fecha}
+           <p style="font-size:26px;">
+    📅 ${fechaMostrar}
+</p>
+
+<p style="font-size:26px;">
+    🕒 ${horaMostrar}
 </p>
 
 <p style="font-size:26px;">
